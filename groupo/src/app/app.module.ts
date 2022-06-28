@@ -11,6 +11,10 @@ import { FormComponent } from './form/form.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostComponent } from './post/post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthPageComponent } from './auth-page/auth-page.component';
+import { SignupComponent } from './auth-page/signup/signup.component';
+import { LoginComponent } from './auth-page/login/login.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LandingPageComponent,
     FormComponent,
     PostsListComponent,
-    PostComponent
+    PostComponent,
+    AuthPageComponent,
+    SignupComponent,
+    LoginComponent,
+    SinglePostComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
       title: [null],
       text: [null],
       image: [null]
-    })
+    }, { updateOn: 'submit'})
 
     this.postPreview$ = this.postForm.valueChanges.pipe(
       map(formValue => ({
