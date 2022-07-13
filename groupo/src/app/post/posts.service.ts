@@ -9,7 +9,7 @@ import { Post } from "./models/post.model";
     providedIn: 'root'
 })
 export class PostsService {
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient,) {}
 
     getAllPosts() {
         return this.http.get<Post[]>(`${environment.protocolHost}/api/posts`)
@@ -25,7 +25,11 @@ export class PostsService {
                 ...post,
                 likesNumber: post.likesNumber + (likeType === 'liked' ? 1 : -1 )
             })),
-            switchMap(updatedPost => this.http.put<Post>(`http://localhost:8800/api/posts/${postId}/like`, updatedPost))
+            switchMap(updatedPost => this.http.put<Post>(`${environment.protocolHost}/api/posts/${postId}/like`, updatedPost))
         )
+    }
+
+    postPost( formValue: Post) {
+        return this.http.post<Post>(`${environment.protocolHost}/api/posts`, formValue)
     }
 }

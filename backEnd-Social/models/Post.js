@@ -4,7 +4,7 @@ const Comment = require('../models/Comment');
 const PostSchema = new mongoose.Schema({
     userId: {
         type: String,
-        required: true
+        //required: true
     },
     title: {
         type: String,

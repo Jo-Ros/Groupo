@@ -18,7 +18,7 @@
 </div>
 
 <div class="card" *ngIf="postPreview$ | async as post">
-    <div class="post-image">
+    <div class="post-image" *ngIf="post.image">
         <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg" alt="">
         <div class="profile-pic"></div>
     </div>

@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, map, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import { Post } from '../../models/post.model';
 import { PostsService } from '../../posts.service';
@@ -15,7 +17,8 @@ export class FormComponent implements OnInit {
   postPreview$!: Observable<Post>;
 
   constructor( private formBuilder: FormBuilder,
-               private postService: PostsService) { }
+               private postService: PostsService,
+               private http: HttpClient) { }
 
   ngOnInit(): void {
     this.postForm = this.formBuilder.group({
@@ -35,7 +38,17 @@ export class FormComponent implements OnInit {
   }
 
   onSubmitForm() {
-    console.log(this.postForm);
+    console.log(this.postForm.value);
+    this.postService.postPost(this.postForm.value).pipe(
+      tap((savedPost) => {
+          if (savedPost) {
+              console.log(savedPost);
+          }
+          else {
+              console.log('problem');
+          }
+      })
+  )
   }
 
 }

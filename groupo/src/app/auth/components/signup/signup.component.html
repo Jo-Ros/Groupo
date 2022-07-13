@@ -1,5 +1,10 @@
-<div class="form-card" [formGroup]="loginForm">
-    <h2>Connection</h2>
+<div [formGroup]="mainForm" class="form-card">
+    <h2>Inscription</h2>
+
+    <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" id="username" formControlName="username">
+    </div>
 
     <div class="form-group">
         <label for="email">Email</label>
@@ -11,5 +16,5 @@
         <input type="password" id="password" formControlName="password">
     </div>
 
-    <button type="button" (click)="onLogin()">Connect</button>
+    <button type="button" (click)="onSubmitForm()">Connect</button>
 </div>
